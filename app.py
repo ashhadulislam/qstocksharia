@@ -127,6 +127,7 @@ if data:
 
     numerator = doubtful + non_halal
     percent = (numerator / total_revenue) * 100
+    print(f"percent {percent}")
 
     # Layout
     col1, col2 = st.columns([1, 1.2])
@@ -149,23 +150,27 @@ if data:
 
     with col2:
         st.markdown("### 📐 Not Halal Business Activity %")
+
         st.markdown(
             f"""
-            <div style='border: 2px dashed orange; padding: 16px; border-radius: 8px; background-color: #fff7ed; font-family: monospace'>
-            Not Halal Business Activity Percentage =<br><br>
-            <strong>( Non Halal Sales & Income + Doubtful Sales & Income )</strong><br>
-            <span style='font-weight: bold;'>÷</span><br>
-            <strong>( Total Revenue )</strong><br><br>
-
-            {calc_data["Non Halal Sales & Income"]} + {calc_data["Doubtful Sales & Income"]}<br>
-            = <strong>{calc_data["Non Halal Sales & Income"]} + {calc_data["Doubtful Sales & Income"]}</strong><br>
-            ÷ {calc_data["Total Revenue"]}<br><br>
-            = <strong style="color:orange;">{percent:.2f}%</strong>
+            <div style="
+                border: 2px dashed var(--secondary-background-color); 
+                padding: 16px; 
+                border-radius: 8px; 
+                background-color: var(--background-color); 
+                color: var(--text-color); 
+                font-family: monospace;
+            ">
+                Not Halal Business Activity Percentage =<br><br>
+                <strong>( Non Halal Sales & Income + Doubtful Sales & Income )</strong><br>
+                <span style='font-weight: bold;'>÷</span><br>
+                <strong>( Total Revenue )</strong><br><br>                
+                = ({calc_data["Non Halal Sales & Income"]} + {calc_data["Doubtful Sales & Income"]})/{calc_data["Total Revenue"]}                
+                <br>= {percent}%</br>
             </div>
             """,
             unsafe_allow_html=True
-        ) 
-
+        )
     
 
     # Map to emojis and text colors
@@ -221,7 +226,7 @@ if data:
         gcMid="#FFA500",          # Keep same as low to match your image
         gcHigh="#ff0000",         # Strong red for non-compliant (>30%)
         sFix="%",                 # Percentage suffix
-        gTheme="black",           # Gauge tick color and pointer theme
+        gTheme="#444444",           # Gauge tick color and pointer theme
     )
 
 
@@ -336,7 +341,7 @@ if data:
         gcMid="#FFA500",          # Keep same as low to match your image
         gcHigh="#ff0000",         # Strong red for non-compliant (>30%)
         sFix="%",                 # Percentage suffix
-        gTheme="black",           # Gauge tick color and pointer theme
+        gTheme="#444444",           # Gauge tick color and pointer theme
     )
 
 
