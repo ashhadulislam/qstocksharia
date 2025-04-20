@@ -14,7 +14,7 @@ import streamviz
 
 
 
-sys.path.append("/Users/dr.ashhadulislam/projects/social/musaffaScraper")
+sys.path.append(".")
 import config
 
 qat_categories=config.qat_categories
